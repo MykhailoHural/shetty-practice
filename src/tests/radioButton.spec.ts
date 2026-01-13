@@ -19,7 +19,7 @@ test.describe("Validation of the radio buttons", () => {
 
     await practicePage.open();
     const pressRadioButton =
-      await practicePage.radioButtonComponent.selectRadioButtonByIndex(2);
+      await practicePage.radioButtonComponent.selectRadioButton(2);
     await expect(pressRadioButton).toBeChecked();
   });
 
@@ -28,7 +28,7 @@ test.describe("Validation of the radio buttons", () => {
 
     await practicePage.open();
     const pressRadioButton =
-      await practicePage.radioButtonComponent.selectRadioButtonByLabel(
+      await practicePage.radioButtonComponent.selectRadioButton(
         "Radio1"
       );
     await expect(pressRadioButton).toBeChecked();
