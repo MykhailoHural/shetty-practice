@@ -15,19 +15,18 @@ export class RadioButtonComponent {
     );
   }
 
-  async selectRadioButtonByLabel(label: string) {
-    const button = this.radioButtonSection
-      .locator("label")
-      .filter({ hasText: label })
-      .locator("input");
+  async selectRadioButton(value: number | string) {
+    let radioButton: Locator;
 
-    await button.check();
-    return button;
-  }
-
-  async selectRadioButtonByIndex(index: number) {
-    const button = this.radioButtons.nth(index);
-    await button.check();
-    return button;
+    if (typeof value === "number") {
+      radioButton = this.radioButtons.nth(value);
+    } else {
+      radioButton = this.radioButtonSection
+        .locator("label")
+        .filter({ hasText: value })
+        .locator("input");
+    }
+    await radioButton.click();
+    return radioButton;
   }
 }
